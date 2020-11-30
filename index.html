@@ -1,0 +1,2474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Neeraj Ahire</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Template css Files -->
+    <style>
+    /*Font Awesome Free Icon*/
+        
+        @import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+        /*Google fonts*/
+        
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Rubik:500,700,900&display=swap');
+        /* General Style*/
+        
+        body {
+            margin: 0;
+            line-height: 1.5;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            outline: none;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+        
+         ::before,
+         ::after {
+            box-sizing: border-box;
+        }
+        
+        input,
+        textarea,
+        select {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .section {
+            background-color: #f2f2fc;
+            /*home title color*/
+            min-height: 100vh;
+            display: block;
+            padding: 0 30px;
+            position: fixed;
+            left: 270px;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+            opacity: 1;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+        
+        .section.back-section {
+            z-index: 1;
+        }
+        
+        .section.active {
+            z-index: 2;
+            opacity: 1;
+            -webkit-animation: slideSection 1s ease;
+            animation: slideSecti 0on 1s ease;
+        }
+        
+        @-webkit-keyframes slideSection {
+            0% {
+                -webkit-transform: translateX(100%);
+                transform: translateX(100%);
+            }
+            100% {
+                -webkit-transform: translateX(0%);
+                transform: translateX(0%);
+            }
+        }
+        
+        .section .container {
+            padding-top: 60px;
+            padding-bottom: 70px;
+        }
+        
+        .section-title {
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin-bottom: 60px;
+        }
+        
+        .section-sub-title {
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        
+        .section-title h2 {
+            font-size: 40px;
+            color: #302e4d;
+            font-family: 'Rubik', sans-serif;
+            font-weight: 700;
+            margin: 0;
+            position: relative;
+        }
+        
+        .navbar a {
+            font-size: 18px;
+            color: #302e4d;
+            font-family: 'Rubik', sans-serif;
+            font-weight: 700;
+            margin: 0;
+            position: relative;
+            overflow: scroll;
+        }
+        
+        .section-sub-title h3 {
+            font-size: 20px;
+            color: #302e4d;
+            font-family: 'Rubik', sans-serif;
+            font-weight: 700;
+            margin-bottom: 0;
+            position: relative;
+            text-decoration: underline;
+        }
+        
+        .section-title h2::before {
+            content: '';
+            height: 4px;
+            width: 50px;
+            position: absolute;
+            top: 100%;
+            left: 0;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            height: 4px;
+            width: 25px;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            margin-top: 8px;
+        }
+        
+        .row {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            margin-left: -15px;
+            margin-right: -15px;
+            background-color: ;
+            position: relative;
+        }
+        
+        .padd-15 {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        /*.main-content {
+                            padding-left: 270px;
+                        }*/
+        
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            width: 100%;
+        }
+        
+        .shadow-dark {
+            -webkit-box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
+            box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
+        }
+        /*download cv buttons*/
+        
+        .btn {
+            font-size: 16px;
+            font-family: 'Rubik', sans-serif;
+            font-weight: 500;
+            padding: 12px 35px;
+            color: #ffffff;
+            border-radius: 40px;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            display: inline-block;
+            white-space: nowrap;
+            border: none;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+        }
+        
+        .hidden {
+            display: none!important;
+        }
+        /*Preloader*/
+        
+        .preloader {
+            background-color: transparent#222222;
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 150;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align: center;
+            align-items: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-transition: all 1s ease;
+            transition: all 1s ease;
+        }
+        
+        .preloader.opacity-0 {
+            opacity: 0;
+        }
+        
+        .preloader .loader {
+            height: 40px;
+            width: 40px;
+            border: 4px solid #e3e3e3;
+            border-radius: 50%;
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+        }
+        
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+        /*Aside*/
+        
+        .aside {
+            width: 270px;
+            background-color: #fdf9ff;
+            /*background-color: red;*/
+            position: fixed;
+            height: 100%;
+            left: 0;
+            top: 0;
+            z-index: 10;
+            border-right: 1px solid #e8dfec;
+            padding: 30px;
+            overflow-y: auto;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+        
+        .aside .logo {
+            padding: 30px 0;
+        }
+        
+        .aside .logo a {
+            font-size: 40px;
+            color: #302e4d;
+            font-family: 'Rubik', sans-serif;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            /* background-color: #ededed;*/
+            position: relative;
+            padding: 0 10px;
+            line-height: 50px;
+        }
+        
+        .aside .logo a::before {
+            content: '';
+            height: 20px;
+            width: 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .aside .logo a::after {
+            content: '';
+            height: 20px;
+            width: 20px;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+        
+        .aside .nav-toggler {
+            height: 40px;
+            width: 45px;
+            border: 1px solid #d4d4e3;
+            cursor: pointer;
+            position: fixed;
+            left: 300px;
+            top: 20px;
+            z-index: 11;
+            border-radius: 5px;
+            background-color: #fdf9ff;
+            /*display: -ms-flexbox;
+    display:flex;*/
+            display: none;
+            -ms-flex-align: center;
+            align-items: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+        
+        .aside .nav-toggler span {
+            height: 2px;
+            width: 18px;
+            display: inline-block;
+            position: relative;
+        }
+        
+        .aside .nav-toggler.open span {
+            background-color: transparent;
+        }
+        
+        .aside .nav-toggler span::before {
+            content: '';
+            height: 2px;
+            width: 18px;
+            position: absolute;
+            top: -6px;
+            left: 0;
+        }
+        
+        .aside .nav-toggler.open span::before {
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+            top: 0px;
+        }
+        
+        .aside .nav-toggler span::after {
+            content: '';
+            height: 2px;
+            width: 18px;
+            position: absolute;
+            top: 6px;
+            left: 0;
+        }
+        
+        .aside .nav-toggler.open span::after {
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            top: 0px;
+        }
+        
+        .aside .nav {
+            /*background-color: #ededed;
+        */
+            list-style: none;
+            margin: 80px 0;
+            padding: 0;
+        }
+        
+        .aside .nav li {
+            display: block;
+        }
+        
+        .aside .nav li a {
+            font-size: 16px;
+            font-weight: 600;
+            color: #302e4d;
+            text-decoration: none;
+            line-height: 45px;
+            display: block;
+            border-bottom: 1px solid #e8dfec;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            text-transform: capitalize;
+        }
+        
+        .aside .nav li a:not(.active):hover {
+            padding-left: 5px;
+        }
+        
+        .aside .nav li a.fa {
+            margin-right: 5px;
+        }
+        
+        .aside .copyright-text {
+            background-color: #ededed;
+            font-size: 18px;
+            color: #7d7d7d;
+        }
+        /*Home*/
+        
+        .home {
+            min-height: 100vh;
+            display: -ms-flexbox;
+            display: flex;
+        }
+        
+        .home .intro {
+            text-align: center;
+        }
+        
+        .home .intro img {
+            border: 8px solid;
+        }
+        
+        .home .intro img {
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        
+        .home .intro h1 {
+            font-size: 30px;
+            color: #302e4d;
+            font-family: 'Rubik', sans-serif;
+            font-weight: 700;
+            margin: 20px 0 5px;
+        }
+        
+        .home.intro p {
+            font-size: 16px;
+            font-weight: 500;
+            margin: 0;
+            line-height: 22px;
+            color: #504e70
+        }
+        
+        .home.intro .social-links {
+            margin-top: 25px;
+        }
+        
+        .home .intro .social-links a {
+            height: 50px;
+            width: 50px;
+            display: inline-block;
+            text-align: center;
+            line-height: 50px;
+            color: #ffffff;
+            margin: 0 4px;
+            border-radius: 50%;
+            text-decoration: none;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        
+        .home .intro .social-links a:hover {
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+        /*About me Section*/
+        
+        .about .about-content {
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+        
+        .about .about-content .about-text {
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+        
+        .about .about-content .about-text h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            color: #302e4d;
+        }
+        
+        .about .about-content .about-text p {
+            font-size: 16px;
+            line-height: 25px;
+            color: #504e70;
+            margin: 0;
+        }
+        
+        .about .about-content .personal-info {
+            /*background-color: red;*/
+            -ms-flex: 0 0 60%;
+            flex: 0 0 60%;
+            max-width: 60%;
+            margin-top: 40px;
+        }
+        
+        .about .about-content .personal-info .info-item {
+            /*background-color: red;*/
+            -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+            max-width: 40%;
+        }
+        
+        .about .about-content .personal-info .info-item p {
+            /*background-color: red;*/
+            font-weight: 600;
+            padding: 10px 0;
+            font-size: 16px;
+            color: #302e4d;
+            margin: 0;
+            border-bottom: 1px solid #e8dfec;
+        }
+        
+        .about .about-content .personal-info .info-item p span {
+            font-weight: 400;
+            color: #504e70;
+            margin-left: 4px;
+            display: inline-block;
+        }
+        
+        .about .about-content .personal-info .info-item .buttons {
+            margin-top: 30px;
+        }
+        
+        .about .about-content .personal-info .info-item .buttons .btn {
+            margin-right: 15px;
+            margin-top: 10px;
+        }
+        
+        .about .about-content .skills {
+            /* background-color: blue;*/
+            -ms-flex: 0 0 40%;
+            flex: 0 0 40%;
+            max-width: 40%;
+            margin-top: 40px;
+        }
+        
+        .about .about-content .skills .skill-item {
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+        
+        .about .about-content .skills .skill-item h5 {
+            line-height: 40px;
+            font-weight: 600;
+            font-size: 16px;
+            color: #302e4d;
+            text-transform: capitalize;
+            margin: 0;
+        }
+        
+        .about .about-content .skills .skill-item .progress {
+            background-color: #e3e3e3;
+            height: 7px;
+            border-radius: 4px;
+            /*overflow: hidden;*/
+            width: 100%;
+            position: relative;
+        }
+        
+        .about .about-content .skills .skill-item {
+            margin-bottom: 30px;
+        }
+        
+        .about .about-content .skills .skill-item .progress .progress-in {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            border-radius: 4px;
+        }
+        
+        .about .about-content .skills .skill-item .skill-percent {
+            /*display: none;*/
+            line-height: 40px;
+            position: absolute;
+            right: 0;
+            color: #302e4d;
+            top: -40px;
+            font-weight: 400;
+        }
+        
+        .about .about-content .education {
+            -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+            max-width: 50%;
+            margin-top: 30px;
+        }
+        
+        .about .about-content .experience {
+            -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+            max-width: 50%;
+            margin-top: 30px;
+        }
+        
+        .about .about-content h3.title {
+            font-size: 24px;
+            margin-bottom: 30px;
+            font-weight: 700;
+            color: #302e4d;
+        }
+        
+        .about .about-content .timeline-box {
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+        
+        .about .about-content .timeline {
+            background-color: #fdf9ff;
+            padding: 30px 15px;
+            border: 1px solid #d4d4e3;
+            border-radius: 10px;
+            width: 100%;
+            position: relative;
+        }
+        
+        .about .about-content .timeline-item {
+            position: relative;
+            padding-left: 37px;
+            padding-bottom: 50px;
+        }
+        
+        .about .about-content .timeline .timeline-item:last-child {
+            padding-bottom: 50px;
+        }
+        
+        .about .about-content .timeline .timeline-item::before {
+            content: '';
+            width: 3px;
+            position: absolute;
+            height: 100%;
+            left: 7px;
+            top: 0;
+        }
+        
+        .about .about-content .timeline .circle-dot {
+            position: absolute;
+            left: 0;
+            top: 1px;
+            height: 15px;
+            width: 15px;
+            left: 0px;
+            border-radius: 50%;
+        }
+        
+        .about .about-content .timeline .timeline-date {
+            font-size: 14px;
+            font-weight: 400;
+            margin-bottom: 12px;
+            color: #504e70;
+        }
+        
+        .about .about-content .timeline .timeline-date .fa {
+            margin-right: 5px;
+        }
+        
+        .about .about-content .timeline .timeline-title {
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-transform: capitalize;
+            color: #302e4d;
+        }
+        
+        .about .about-content .timeline .timeline-text {
+            font-size: 16px;
+            line-height: 25px;
+            color: #504e70;
+            margin: 0;
+        }
+        /* Service section */
+        
+        .service .container {
+            padding-bottom: 40px;
+        }
+        
+        .service .service-item {
+            /*background-color: red;*/
+            -ms-flex: 0 0 33.33%;
+            flex: 0 0 33.33%;
+            max-width: 33.33%;
+            margin-bottom: 30px;
+            display: -ms-flexbox;
+            display: flex;
+        }
+        
+        .service .service-item .service-item-inner {
+            background-color: #fdf9ff;
+            border: 1px solid #d4d4e3;
+            border-radius: 10px;
+            padding: 30px 15px;
+            text-align: center;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+        
+        .service .service-item .service-item-inner:hover {
+            -webkit-box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
+            box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
+        }
+        
+        .service .service-item .service-item-inner .icon {
+            height: 70px;
+            width: 70px;
+            /*background-color: red;*/
+            display: block;
+            margin: 0 auto 30px;
+            text-align: center;
+            border-radius: 50%;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+        
+        .service .service-item .service-item-inner .icon .fa {
+            font-size: 60px;
+            line-height: 60px;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+        
+        .service .service-item .service-item-inner:hover .icon .fa {
+            font-size: 25px;
+            color: #ffffff;
+        }
+        
+        .service .service-item .service-item-inner h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #302e4d;
+            font-weight: 700;
+            text-transform: capitalize;
+        }
+        
+        .service .service-item .service-item-inner p {
+            font-size: 16px;
+            color: #504e70;
+            line-height: 25px;
+            margin: 0;
+        }
+        /* Portfolio */
+        
+        .portfolio .container {
+            padding-bottom: 70px;
+        }
+        
+        .portfolio .portfolio-filter {
+            /*background-color: red;*/
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            max-width: 100%;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .portfolio .portfolio-filter button {
+            border: none;
+            background-color: transparent;
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: capitalize;
+            margin: 0 10px;
+            color: #302e4d;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            white-space: nowrap;
+            padding: 2px;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio .portfolio-item {
+            /* background-color: red;*/
+            flex: 0 0 33.33%;
+            max-width: 33.33%;
+            margin-bottom: 30px;
+        }
+        
+        .portfolio .portfolio-item.hide {
+            display: none;
+        }
+        
+        .portfolio .portfolio-item.show {
+            display: block;
+            animation: showItem 0.5s ease;
+        }
+        
+        @-webkit-keyframes showItem {
+            0% {
+                -webkit-transform: scale(0.8);
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes showItem {
+            0% {
+                -webkit-transform: scale(0.8);
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .portfolio .portfolio-item-inner {
+            border: solid #fdf9ff;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+            padding: 30px;
+        }
+        
+        .portfolio .portfolio-item-inner .portfolio-img img {
+            width: 100%;
+            display: block;
+        }
+        
+        .portfolio .portfolio-item .portfolio-info {
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            height: 100%;
+            width: 100%;
+            z-index: 1;
+            padding: 30px;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+        
+        .portfolio .portfolio-item-inner:hover .portfolio-info {
+            opacity: 1;
+        }
+        
+        .portfolio .portfolio-item .portfolio-info h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #ffffff;
+            text-transform: capitalize;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            -webkit-transform: translateX(-20px);
+            transform: translateX(-20px);
+            opacity: 0;
+        }
+        
+        .portfolio .portfolio-item-inner:hover .portfolio-info h4 {
+            -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+            opacity: 1;
+        }
+        
+        .portfolio .portfolio-item .portfolio-info .icon {
+            height: 40px;
+            width: 40px;
+            background-color: #ffffff;
+            text-align: center;
+            border-radius: 50%;
+            position: absolute;
+            right: 30px;
+            bottom: 30px;
+            opacity: 0;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            -webkit-transform: translateX(20px);
+            transform: translateX(20px);
+        }
+        
+        .portfolio .portfolio-item-inner:hover .portfolio-info .icon {
+            opacity: 1;
+            -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+        }
+        /* Achievements */
+        
+        .navbar a {
+            color: #302e4d;
+            transition: 0.3s;
+        }
+        
+        .navbar .fa {
+            line-height: 40px;
+            color: #2196f3;
+            font-size: 25px;
+        }
+        
+        .navbar.active {
+            z-index: 2;
+            opacity: 1;
+            -webkit-animation: slideSection 1s ease;
+            animation: slideSection 1s ease;
+        }
+        /*lightbox*/
+        
+        .lightbox {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 100;
+            display: none;
+            -ms-flex-align: center;
+            align-items: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            cursor: zoom-out;
+            padding: 30px;
+        }
+        
+        .lightbox.open {
+            display: -ms-flexbox;
+            display: flex;
+        }
+        
+        .lightbox .lightbox-content img {
+            height: auto;
+            width: auto;
+            max-width: 100%;
+            max-height: 500px;
+            cursor: pointer;
+            display: block;
+            padding: 40px 0 30px;
+        }
+        
+        .lightbox .lightbox-content {
+            position: relative;
+            /* -webkit-transition: all 0.5s ease;
+                        transition: all 0.5s ease;
+                        -webkit-transform: scale(0.8);
+                        transform: scale(0.8);*/
+        }
+        
+        .lightbox.open .lightbox-content {
+            /*-webkit-transform: scale(1);
+                        transform: scale(1);*/
+            animation: lightboxImage .5s ease;
+        }
+        
+        @-webkit-keyframes lightboxImage {
+            0% {
+                -webkit-transform: scale(0.8);
+                transform: scale(0.8);
+            }
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes lightboxImage {
+            0% {
+                -webkit-transform: scale(0.8);
+                transform: scale(0.8);
+            }
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+        }
+        
+        .lightbox .lightbox-content .lightbox-close {
+            position: absolute;
+            height: 40px;
+            width: 40px;
+            /*background-color: red;*/
+            top: 0;
+            right: 0px;
+            font-size: 32px;
+            text-align: right;
+            color: #ffffff;
+            line-height: 40px;
+        }
+        
+        .lightbox .lightbox-content .lightbox-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            /*background-color: rgba(0, 0, 0, 0.5);*/
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-pack: space-between;
+            justify-content: space-between;
+            font-size: 16px;
+            color: #ffffff;
+            font-weight: 400;
+            z-index: -1;
+        }
+        
+        .lightbox .lightbox-controls .prev-item,
+        .lightbox .lightbox-controls .next-item {
+            position: absolute;
+            height: 40px;
+            width: 40px;
+            background-color: #ffffff;
+            text-align: center;
+            border-radius: 50%;
+            cursor: pointer;
+            top: 50%;
+            margin-top: -20px;
+            z-index: 110;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+        
+        .lightbox .lightbox-controls .prev-item:hover,
+        .lightbox .lightbox-controls .next-item:hover {
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+        
+        .lightbox .lightbox-controls .prev-item:active,
+        .lightbox .lightbox-controls .next-item:active {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+        
+        .lightbox .lightbox-controls .prev-item {
+            left: 30px;
+        }
+        
+        .lightbox .lightbox-controls .next-item {
+            right: 30px;
+        }
+        
+        .lightbox .lightbox-controls .prev-item .fa,
+        .lightbox .lightbox-controls .next-item .fa {
+            font-size: 32px;
+            line-height: 40px;
+        }
+        /*Blog Seection*/
+        
+        .blog .container {
+            padding-bottom: 40px;
+        }
+        
+        .blog .blog-item {
+            /* background-color: red;*/
+            -ms-flex: 0 0 33.33%;
+            flex: 0 0 33.33%;
+            max-width: 33.33%;
+            margin-bottom: 30px;
+            display: flex;
+        }
+        
+        .blog .blog-item-inner .blog-img {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blog .blog-item-inner .blog-img img {
+            width: 100%;
+            display: block;
+            cursor: pointer;
+            -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+        }
+        
+        .blog .blog-item-inner:hover .blog-img img {
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+        
+        .blog .blog-item-inner {
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #d4d4e3;
+        }
+        
+        .blog .blog-item-inner .blog-img .blog-date {
+            position: absolute;
+            padding: 4px 10px;
+            border-radius: 5px;
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 14px;
+            left: 15px;
+            bottom: 15px;
+        }
+        
+        .blog .blog-item-inner .blog-info {
+            padding: 30px 15px;
+            background-color: #fdf9ff;
+        }
+        
+        .blog .blog-item-inner .blog-info .blog-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #302e4d;
+            text-transform: capitalize;
+            margin-bottom: 10px;
+        }
+        
+        .blog .blog-item-inner .blog-info .blog-description {
+            font-size: 16px;
+            line-height: 25px;
+            color: #504e70;
+            font-weight: 400;
+            margin-bottom: 15px;
+        }
+        
+        .blog .blog-item-inner .blog-info .blog-description .blog-tags {
+            font-size: 16px;
+            line-height: 20px;
+            color: #504e70;
+            font-weight: 400;
+            font-size: 14px;
+            text-transform: capitalize;
+        }
+        
+        .blog .blog-item-inner .blog-info .blog-tags a {
+            text-decoration: none;
+            font-weight: 600;
+        }
+        /*Contact Section*/
+        
+        .contact .contact-info-item {
+            /*background-color: red;*/
+            -ms-flex: 0 0 33.33%;
+            flex: 0 0 33.33%;
+            max-width: 33.33%;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .contact .contact-info-item .icon {
+            display: inline-block;
+        }
+        
+        .contact .contact-info-item .icon .fa {
+            font-size: 40px;
+        }
+        
+        .contact .contact-info-item h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #302e4d;
+            text-transform: capitalize;
+            margin: 15px 0 5px;
+        }
+        
+        .contact .contact-info-item p {
+            font-size: 16px;
+            line-height: 25px;
+            color: #504e70;
+            margin: 0;
+            font-weight: 400;
+        }
+        
+        .contact .contact-form {
+            /*background-color: red;*/
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+        
+        .contact .contact-form .col-6 {
+            /*background-color: red;*/
+            -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+        
+        .contact .contact-form .col-12 {
+            /*background-color: red;*/
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+        
+        .contact .contact-form .form-item {
+            margin-bottom: 30px;
+        }
+        
+        .contact .contact-form .form-item .form-control {
+            width: 100%;
+            height: 50px;
+            border-radius: 25px;
+            border: 1px solid#d4d4e3;
+            padding: 10px 25px;
+            font-size: 16px;
+            color: #504e70;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+        
+        .contact .contact-form .form-item .form-contro:focus {
+            -webkit-box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
+            box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
+        }
+        
+        .contact .contact-form .form-item textarea.form-control {
+            height: 140px;
+        }
+        
+        .contact .contact-form .btn {
+            height: 50px;
+            padding: 0 50px;
+        }
+        /*Dark Body*/
+        
+        body.dark .section {
+            background-color: #151515;
+        }
+        
+        body.dark .copyright-text,
+        body.dark .contact .contact-form .form-item .form-control,
+        body.dark .blog .blog-item-inner .blog-info,
+        body.dark .service .service-item .service-item-inner,
+        body.dark .about .about-content .timeline,
+        body.dark .aside {
+            background-color: #222222;
+        }
+        
+        body.dark .navbar a,
+        body.dark .contact .contact-info-item h4,
+        body.dark .blog .blog-item-inner .blog-info .blog-title,
+        body.dark .portfolio .portfolio-filter button,
+        body.dark .service .service-item .service-item-inner h4,
+        body.dark .about .about-content .timeline .timeline-title,
+        body.dark .about .about-content .h3.title,
+        body.dark .about .about-content .skills .skill-item h5,
+        body.dark .about .about-content .personal-info .info-item p,
+        body.dark .about .about-content .about-text h3,
+        body.dark .about .about-content h3.title,
+        body.dark .section-title h2,
+        body.dark .home .intro h1,
+        body.dark .aside .logo a,
+        body.dark .aside .nav li a {
+            color: #ffffff;
+        }
+        
+        body.dark .contact .contact-form .form-item .form-control,
+        body.dark .contact .contact-info-item p,
+        body.dark .blog .blog-item-inner .blog-info .blog-tags,
+        body.dark .blog .blog-item-inner .blog-info .blog-description,
+        body.dark .service .service-item .service-item-inner p,
+        body.dark .about .about-content .timeline .timeline-text,
+        body.dark .about .about-content .timeline-date,
+        body.dark .about .about-content .skills .skill-item .skill-percent,
+        body.dark .about .about-content .personal-info .info-item p span,
+        body.dark .about .about-content .about-text p,
+        body.dark .home .intro p {
+            color: #e9e9e9;
+        }
+        
+        body.dark .aside,
+        body.dark .contact .contact-form .form-item .form-control,
+        body.dark .blog .blog-item-inner,
+        body.dark .portfolio .portfolio-item-inner,
+        body.dark .service .service-item .service-item-inner,
+        body.dark .about .about-content .timeline,
+        body.dark .about .about-content .personal-info .info-item p,
+        body.dark .aside .nav li a {
+            border-color: #393939;
+        }
+        
+        body.dark .shadow-dark {
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+        
+        .body-skin {
+            cursor: pointer;
+        }
+        /*Responsive*/
+        
+        @media (max-width: 1199px) {
+            .section .container {
+                padding: 70px;
+            }
+            .aside .nav-toggler {
+                display: -ms-flexbox;
+                display: flex;
+                left: 30px;
+            }
+            .aside .nav-toggler.open {
+                left: 300px;
+            }
+            .aside {
+                left: -270px;
+            }
+            .aside.open {
+                left: 0px;
+            }
+            .section {
+                left: 0;
+            }
+        }
+        
+        .about .about-content .personal-info .info-item p span {
+            display: block;
+            margin-left: 0;
+        }
+    }
+    @media (max-width:991px) {
+        .blog .blog-item,
+        .portfolio .portfolio-item,
+        .service .service-item {
+            -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+    @media (max-width:767px) {
+        .contact .contact-form .col-6,
+        .blog .blog-item,
+        .service .service-item,
+        .about .about-content .experience,
+        .about .about-content .education,
+        .about .about-content .skills,
+        .about .about-content .personal-info {
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            max-width: 150%;
+        }
+        
+        .portfolio .portfolio-filter .button {
+            margin-bottom: 10px;
+        }
+    }
+    @media (max-width:575px) {
+        .contact .contact-info-item,
+        .portfolio .portfolio-item {
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+    /*   style swtcher css*/
+    .style-switcher {
+        position: fixed;
+        top: 48px;
+        right: 0;
+        z-index: 10;
+        background-color: #ffffff;
+        padding: 15px;
+        border: 1px solid #d4d4e3;
+        border-right: none;
+        border-radius: 0 0 0 5px;
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+    }
+    .style-switcher.open {
+        -webkit-transform: translateX(0%);
+        transform: translateX(0%);
+    }
+    .style-switcher h5 {
+        font-size: 16px;
+        color: #302e4d;
+        margin-bottom: 8px;
+        margin-top: 0px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #e8dfec;
+    }
+    .style-switcher ul {
+        margin: 0;
+        padding: 0;
+        display: block;
+        margin-bottom: 5px;
+        list-style: none;
+    }
+    .style-switcher ul li {
+        display: inline-block;
+    }
+    .style-switcher ul li a {
+        height: 30px;
+        width: 30px;
+        display: block;
+        border-radius: 50%;
+        cursor: pointer;
+        text-decoration: none;
+        margin-right: 2px;
+        cursor: pointer;
+    }
+    .style-switcher .toggle-style-switcher {
+        position: absolute;
+        height: 45px;
+        width: 45px;
+        background: #ffffff;
+        left: -46px;
+        top: -1px;
+        border: 1px solid #d4d4e3;
+        border-right: none;
+        text-align: center;
+    }
+    .style-switcher .toggle-style-switcher .fa {
+        font-size: 20px;
+        line-height: 43px;
+        cursor: pointer;
+    }
+    </style>
+    <!--  <link rel="stylesheet" href="css/style.css" type="text/css">
+  -->
+    <link rel="stylesheet" href="blue.css" type="text/css">
+
+    <!--Live Style Switcher - Demo Only-->
+    <link rel="stylesheet" class="alternate-style" title="blue" href="blue.css" type="text/css" disabled>
+    <link rel="stylesheet" class="alternate-style" title="pink" href="pink.css" type="text/css" disabled>
+    <link rel="stylesheet" class="alternate-style" title="orange" href="orange.css" type="text/css" disabled>
+    <link rel="stylesheet" class="alternate-style" title="yellow" href="yellow.css" type="text/css" disabled>
+    <link rel="stylesheet" class="alternate-style" title="green" href="green.css" type="text/css" disabled>
+    <!--<link rel="stylesheet" href="css/styleSwitcher.css" type="text/css">-->
+
+    <link rel="stylesheet" href="css/imggallery.css">
+    <link rel="stylesheet" href="css/lightbox.min.css">
+    <script src="js/lightbox-plus-jquery.min.js">
+    </script>
+</head>
+
+<body>
+
+    <!--Preloader-->
+    <div class="preloader">
+        <div class="loader">
+
+        </div>
+    </div>
+    <!--Preloader End -->
+    <!--Main Container-->
+    <div class="main-container">
+        <!--Aside-->
+        <div class="aside">
+            <!--Logo-->
+            <div class="logo">
+                <a href="#">Neeraj</a>
+            </div>
+            <!--Nav toggler button-->
+            <div class="nav-toggler ">
+                <span></span>
+            </div>
+            <!--Nav-->
+            <ul class="nav">
+                <li><a href="#home" class="active"><i class="fa fa-home"></i>&nbsp;&nbsp;Home</a></li>
+                <li><a href="#about"><i class="fa fa-user"></i>&nbsp;&nbsp;About</a></li>
+                <li><a href="#services"><i class="fa fa-list"></i>&nbsp;&nbsp;Services</a></li>
+                <li><a href="#achievement"><i class="fa fa-trophy"></i>&nbsp;&nbsp;Achievements</a></li>
+                <li><a href="#blog"><i class="fa fa-newspaper-o"></i>&nbsp;&nbsp;Blog</a></li>
+                <li><a href="#contact"><i class="fa fa-comments"></i>&nbsp;&nbsp;Contact</a></li>
+            </ul>
+            <!--Copyright-->
+            <div class="copyright-text">
+                &copy;2020 by Neeraj Ahire
+            </div>
+        </div>
+        <!--Aside End-->
+        <!--Main Content-->
+        <div class="main-content">
+            <!-- Home Section-->
+            <section class="home  section active" id="home">
+                <div class="container">
+                    <div class="intro">
+                        <img src="meet.png" alt="profile" class="shadow-dark">
+                        <h1>Neeraj Ahire</h1>
+                        <p>I am a Web Developer</p>
+
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/neerajahire" target="blank"><i class="fa fa-linkedin"></i></a>
+                            <a href="https://github.com/niirrr777" target="blank"><i class="fa fa-github" style="font-size: 30px;"></i></a>
+                            <a href="https://instagram.com/nir777_?igshid=hjv2rnxna94e" target="blank"><i class="fa fa-instagram"></i></a>
+                            <a href="https://twitter.com/NeerajAhire" target="blank"><i class="fa fa-twitter"></i></a>
+                            <a href="https://www.facebook.com/neeraj.ahire" target="blank"><i class="fa fa-facebook"></i></a>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--Home section End-->
+
+            <!--About section-->
+            <section class="about section " id="about">
+                <div class="container">
+                    <div class="row">
+                        <div class="section-title padd-15">
+                            <h2>About Me</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="about-content padd-15">
+                            <div class="row ">
+                                <div class="about-text padd-15">
+                                    <h3>I am Neeraj Ahire and <span>Web Developer</span></h3>
+                                    <p>Hi! My name is Neeraj Ahire. I am a third year Student of MCA, and going to complete my MCA in May 2021, I'm very passionate and dedicated to my work. I enjoy every step of the design process, from discussion and collaboration.</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="personal-info padd-15">
+                                    <div class="row">
+                                        <div class="info-item padd-15">
+                                            <p>Birthday: <span>21 April 1997</span></p>
+                                        </div>
+                                        <div class="info-item padd-15">
+                                            <p>Age: <span>23</span></p>
+                                        </div>
+                                        <div class="info-item padd-15">
+                                            <p>Website:<span>
+                                            <a href="https://learntechnicallly.blogspot.com/" target="blank">LearnTechnicallly</a></span></p>
+                                        </div>
+                                        <div class="info-item padd-15">
+                                            <p>email: <span><br>neerajahire969@gmail.com</span></p>
+                                        </div>
+                                        <div class="info-item padd-15">
+                                            <p>Degree: <span>MCA</span></p>
+                                        </div>
+                                        <div class="info-item padd-15">
+                                            <p>Phone: <span>7057472708</span></p>
+                                        </div>
+                                        <div class="info-item padd-15">
+                                            <p>City: <span>Pune</span></p>
+                                        </div>
+                                        <div class="info-item padd-15">
+                                            <p>Freelance: <span>Available</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="buttons padd-15">
+                                            <a href="#" class="btn">Download CV</a>
+                                            <a href="#contact" data-section-index="1" class="btn hire-me">Hire me</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="skills padd-15">SKILLS
+                                    <div class="row">
+                                        <div class="skill-item padd-15">
+                                            <h5>C/C++</h5>
+                                            <div class="progress">
+                                                <div class="progress-in" style="width: 80%"></div>
+                                                <div class="skill-percent"></div>
+                                            </div>
+                                        </div>
+                                        <div class="skill-item padd-15">
+                                            <h5>Java</h5>
+                                            <div class="progress">
+                                                <div class="progress-in" style="width: 70%"></div>
+                                                <div class="skill-percent"></div>
+                                            </div>
+                                        </div>
+                                        <div class="skill-item padd-15">
+                                            <h5>HTML</h5>
+                                            <div class="progress">
+                                                <div class="progress-in" style="width: 95%"></div>
+                                                <div class="skill-percent"></div>
+                                            </div>
+                                        </div>
+                                        <div class="skill-item padd-15">
+                                            <h5>CSS</h5>
+                                            <div class="progress">
+                                                <div class="progress-in" style="width: 80%"></div>
+                                                <div class="skill-percent"></div>
+                                            </div>
+                                        </div>
+                                        <div class="skill-item padd-15">
+                                            <h5>Blogger</h5>
+                                            <div class="progress">
+                                                <div class="progress-in" style="width: 90%"></div>
+                                                <div class="skill-percent"></div>
+                                            </div>
+                                        </div>
+                                        <div class="skill-item padd-15">
+                                            <h5>Linux</h5>
+                                            <div class="progress">
+                                                <div class="progress-in" style="width: 80%"></div>
+                                                <div class="skill-percent"></div>
+                                            </div>
+                                        </div>
+                                        <div class="skill-item padd-15">
+                                            <h5>MySQL</h5>
+                                            <div class="progress">
+                                                <div class="progress-in" style="width: 80%"></div>
+                                                <div class="skill-percent"></div>
+                                            </div>
+                                        </div>
+                                        <div class="skill-item padd-15">
+                                            <h5>PHP</h5>
+                                            <div class="progress">
+                                                <div class="progress-in" style="width: 60%"></div>
+                                                <div class="skill-percent"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="education padd-15">
+                                    <h3 class="title">Education</h3>
+                                    <div class="row">
+                                        <div class="timeline-box padd-15">
+                                            <div class="timeline shadow-dark">
+                                                <!-- timeline item-->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h6 class="timeline-date">
+                                                        <i class="fa fa-calendar"></i>2018 - 2021
+                                                    </h6>
+                                                    <h4 class="timeline-title">Master of Computer Application</h4>
+                                                    <p class="timeline-text">Pursuing Masters Of Computer Application from Vishwakarma Institute Of Technology, Pune.</p>
+                                                </div>
+                                                <!-- timeline item-End-->
+                                                <!-- timeline item-->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h6 class="timeline-date">
+                                                        <i class="fa fa-calendar"></i>2015 - 2018
+                                                    </h6>
+                                                    <h4 class="timeline-title">Bachleor of Computer Science</h4>
+                                                    <p class="timeline-text">Completed Graduation From K. K. Wagh College of Arts, Commerce, Science and Computer Science, Nashik.</p>
+                                                </div>
+                                                <!-- timeline item-End-->
+                                                <!-- timeline item-->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h6 class="timeline-date">
+                                                        <i class="fa fa-calendar"></i>2013 - 2015
+                                                    </h6>
+                                                    <h4 class="timeline-title">HSC</h4>
+                                                    <p class="timeline-text">Passed HSC Exam From MGSM's ASC College, Chopda.</p>
+                                                </div>
+                                                <!-- timeline item-End-->
+                                                <!-- timeline item-->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h6 class="timeline-date">
+                                                        <i class="fa fa-calendar"></i>2012 - 2013
+                                                    </h6>
+                                                    <h4 class="timeline-title">SSC</h4>
+                                                    <p class="timeline-text">Completed SSC From Mimosa And Clara English Medium School, Chopda.</p>
+                                                </div>
+                                                <!-- timeline item-End-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="experience padd-15">
+                                    <h3 class="title">Experience</h3>
+                                    <div class="row">
+                                        <div class="timeline-box padd-15">
+                                            <div class="timeline shadow-dark">
+                                                <!-- timeline item-->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h6 class="timeline-date">
+                                                        <i class="fa fa-calendar"></i>July2020 - Present
+                                                    </h6>
+                                                    <h4 class="timeline-title">Campus Ambasador</h4>
+                                                    <p class="timeline-text">Working as a Campus Ambasador of TechFest, IIT Bombay at Vishwakarma Institute of Technology, Pune. </p>
+                                                </div>
+                                                <!-- timeline item-End-->
+                                                <!-- timeline item-->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h6 class="timeline-date">
+                                                        <i class="fa fa-calendar"></i>September-2020 - November-2020
+                                                    </h6>
+                                                    <h4 class="timeline-title">Internshala Student Partner (ISP) 19.</h4>
+                                                    <p class="timeline-text">Completed 3 months internship as Face of Internshala at Vishwakarma Institute Of Technology, Pune.</p>
+                                                </div>
+                                                <!-- timeline item-End-->
+                                                <!-- timeline item-->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h6 class="timeline-date">
+                                                        <i class="fa fa-calendar"></i>August-2020 - November-2020
+                                                    </h6>
+                                                    <h4 class="timeline-title">Writer</h4>
+                                                    <p class="timeline-text">Writer at Pi Editorial Board, at VIT, Pune.</p>
+                                                </div>
+                                                <!-- timeline item-End-->
+                                                <!-- timeline item
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h6 class="timeline-date">
+                                                        <i class="fa fa-calendar"></i>2012 - 2013
+                                                    </h6>
+                                                    <h4 class="timeline-title">SSC</h4>
+                                                    <p class="timeline-text">Mimosa And Clara English Medium School,Chopda</p>
+                                                </div>
+                                                <!-- timeline item-End-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--About section End-->
+
+            <!--Service section-->
+
+            <section class="service section " id="services">
+                <div class="container">
+                    <div class="row">
+                        <div class="section-title padd-15">
+                            <h2>Services</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!--Service Item -->
+                        <div class="service-item padd-15">
+                            <div class="service-item-inner">
+                                <div class="icon"><i class="fa fa-laptop"></i></div>
+                                <h4>Web design</h4>
+                                <p> dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                            </div>
+                        </div>
+                        <!--Service item end-->
+                        <!--Service Item -->
+                        <div class="service-item padd-15">
+                            <div class="service-item-inner">
+                                <div class="icon"><i class="fa fa-photo"></i></div>
+                                <h4>Photography</h4>
+                                <p> dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                            </div>
+                        </div>
+                        <!--Service item end-->
+                        <!--Service Item -->
+                        <div class="service-item padd-15">
+                            <div class="service-item-inner">
+                                <div class="icon"><i class="fa fa-code"></i></div>
+                                <h4>Web developer</h4>
+                                <p> dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                            </div>
+                        </div>
+                        <!--Service item end-->
+                        <!--Service Item -->
+                        <div class="service-item padd-15">
+                            <div class="service-item-inner">
+                                <div class="icon"><i class="fa fa-film"></i></div>
+                                <h4>Video Editing</h4>
+                                <p> dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                            </div>
+                        </div>
+                        <!--Service item end-->
+                        <!--Service Item -->
+                        <div class="service-item padd-15">
+                            <div class="service-item-inner">
+                                <div class="icon"><i class="fa fa-rocket"></i></div>
+                                <h4>SEO Optimization</h4>
+                                <p> dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                            </div>
+                        </div>
+                        <!--Service item end-->
+                        <!--Service Item -->
+                        <div class="service-item padd-15">
+                            <div class="service-item-inner">
+                                <div class="icon"><i class="fa fa-paint-brush"></i></div>
+                                <h4>Logo Design</h4>
+                                <p> dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                            </div>
+                        </div>
+                        <!--Service item end-->
+
+                    </div>
+                </div>
+        </div>
+        </section>
+
+        <!--Service section End-->
+
+        <!--Portfolio-section-->
+
+        <section class="portfolio section" id="achievement">
+            <div class="container">
+                <div class="row">
+                    <div class="section-title padd-15">
+                        <h2>Achievements</h2>
+
+
+                    </div>
+
+                    <!-- Item 1  -->
+                    <div class="section-sub-title padd-15">
+
+                        <h3 id="technical">TECHNICAL</h3>
+
+                        <nav class="navbar ">
+                            <a href="#technical" class="active"><i class="fa fa-desktop"></i>&nbsp;&nbsp;TECHNICAL</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#internship"><i class="fa fa-trophy"></i>&nbsp;&nbsp;INTERNSHIP REWARDS</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#sports"><i class="fa fa-futbol-o"></i>&nbsp;&nbsp;SPORTS</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#social"><i class="fa fa-handshake-o"></i>&nbsp;&nbsp;SOCIAL-ACTIVITY</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#extra-curricular"><i class="	fa fa-plus-square"></i>&nbsp;&nbsp;EXTRA-CURRICULAR</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </nav>
+
+                    </div>
+                    <div class="row ">
+
+                        <div class="gallery ">
+                            <a href="/Technical certificates/Google Analytics.jpg" data-lightbox="mygallery" data-title="Learnt Google Analytics for beginners"> <img src="/Technical certificates/Google Analytics.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Technical certificates/IBM_data_science_badge.jpg" data-lightbox="mygallery" data-title="Earned IBM Badge"> <img src="/Technical certificates/IBM_data_science_badge.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Technical certificates/What is Data Science by IBM coursera.jpeg" data-lightbox="mygallery" data-title="Learnt About Basics of Data Science With Coursera "> <img src="/Technical certificates/What is Data Science by IBM coursera.jpeg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Technical certificates/Cyber Security.jpeg" data-lightbox="mygallery" data-title="Learnt Cyber Security Basics from Udemy Course"> <img src="/Technical certificates/Cyber Security.jpeg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Technical certificates/HTML, CSS Beginners.jpg" data-lightbox="mygallery" data-title="Learnt HTML,CSS  from Udemy Course"> <img src="/Technical certificates/HTML, CSS Beginners.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Technical certificates/1082020DS.jpg" data-lightbox="mygallery" data-title="Attended Workshop on Data Structures"> <img src="/Technical certificates/1082020DS.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Technical certificates/23072020Edureka full stack workshop.jpg" data-lightbox="mygallery" data-title="Attended Full Stack Workshop By Edureka"> <img src="/Technical certificates/23072020Edureka full stack workshop.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Technical certificates/220720Android workshop coding blocks.jpg" data-lightbox="mygallery" data-title="Attended Android Workshop"> <img src="/Technical certificates/220720Android workshop coding blocks.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Technical certificates/21062020IQ_FAANG by  coding blocks.jpg" data-lightbox="mygallery" data-title="Attended Interview Preparation for FAANG Companies Workshop"> <img src="/Technical certificates/21062020IQ_FAANG by  coding blocks.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Technical certificates/7062020GITHUB workshop.jpeg" data-lightbox="mygallery" data-title="Attended GITHUB Work shop"> <img src="/Technical certificates/7062020GITHUB workshop.jpeg "></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Technical certificates/cprog2013.jpg" data-lightbox="mygallery" data-title="Completed C Programming Course"> <img src="/Technical certificates/cprog2013.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Technical certificates/mscit2013.jpg" data-lightbox="mygallery" data-title="Scored 93 Marks In MSCIT Exam"> <img src="/Technical certificates/mscit2013.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <br>
+                            <br>
+                            <hr class="hr-line">
+
+                        </div>
+                    </div>
+
+
+                    <!-- Item 1 End -->
+
+                    <!-- Item 2 -->
+                    <div class="section-sub-title padd-15">
+
+                        <h3 id="internship">INTERNSHIP REWARDS</h3>
+                        <nav class="navbar">
+                            <a href="#technical" class="active"><i class="fa fa-desktop"></i>&nbsp;&nbsp;TECHNICAL</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#internship"><i class="fa fa-trophy"></i>&nbsp;&nbsp;INTERNSHIP REWARDS</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#sports"><i class="fa fa-futbol-o"></i>&nbsp;&nbsp;SPORTS</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#social"><i class="fa fa-handshake-o"></i>&nbsp;&nbsp;SOCIAL-ACTIVITY</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#extra-curricular"><i class="fa fa-plus-square"></i>&nbsp;&nbsp;EXTRA-CURRICULAR</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </nav>
+                    </div>
+                    <div class="row ">
+                        <div class="gallery ">
+                            <a href="/Internships Rewards/Epilepsy.png" data-lightbox="mygallery" data-title="For Successfully Conducting a Virtual Seminar On ' Epilepsy ' in My School Organized by TechFest, IIT, BOMBAY (8 Nov 2020)"> <img src="/Internships Rewards/Epilepsy.png"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Internships Rewards/ispcompletion.png" data-lightbox="mygallery" data-title="Internshala Student Partner Completion Letter (Nov 2020)"> <img src="/Internships Rewards/ispcompletion.png"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Internships Rewards/ispgoldcard.png" data-lightbox="mygallery" data-title="Got ISP Gold Visiting Card as Reward for performing well During  ISP Contests (Sept-Nov 2020)"> <img src="/Internships Rewards/ispgoldcard.png"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Internships Rewards/internshiptalk.png" data-lightbox="mygallery" data-title="For Hosting an Internshala Talk on topic 'Easiest Way To Earn Pocket Money and Gain Experience' ()"> <img src="/Internships Rewards/internshiptalk.png"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <br>
+                            <br>
+                            <hr class="hr-line">
+                        </div>
+                    </div>
+                    <!-- Item 2 End -->
+
+
+
+                    <!-- Item 3 -->
+                    <div class="section-sub-title padd-15">
+
+                        <h3 id="sports">SPORTS</h3>
+                        <nav class="navbar">
+
+                            <a href="#technical" class="active"><i class="fa fa-desktop"></i>&nbsp;&nbsp;TECHNICAL</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#internship"><i class="fa fa-trophy"></i>&nbsp;&nbsp;INTERNSHIP REWARDS</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#sports"><i class="fa fa-futbol-o"></i>&nbsp;&nbsp;SPORTS</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#social"><i class="fa fa-handshake-o"></i>&nbsp;&nbsp;SOCIAL-ACTIVITY</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#extra-curricular"><i class="fa fa-plus-square"></i>&nbsp;&nbsp;EXTRA-CURRICULAR</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </nav>
+                    </div>
+                    <div class="row ">
+                        <div class="gallery ">
+
+                            <a href="/Sports Certificates/marathon.jpg" data-lightbox="mygallery" data-title="Participated in 3Km Marathon Organised By Nashik Police (Year:2016)"> <img src="/Sports Certificates/marathon.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Sports Certificates/ASC2014.jpg" data-lightbox="mygallery" data-title="Inter College Competition(Year:2014)"> <img src="/Sports Certificates/ASC2014.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Sports Certificates/rolllballwin2013.jpg" data-lightbox="mygallery" data-title="Won RollBAll Match At District Level(Year:2013)"> <img src="/Sports Certificates/rolllballwin2013.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Sports Certificates/newspaper.jpg" data-lightbox="mygallery" data-title=""> <img src="/Sports Certificates/newspaper.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Sports Certificates/schoolmatch2012.jpg" data-lightbox="mygallery" data-title="Won in Inter School RollBall Match (Year:2012)"> <img src="/Sports Certificates/schoolmatch2012.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Sports Certificates/summercamp2012.jpg" data-lightbox="mygallery" data-title="Summer Camp Certificate (Year:2012)"> <img src="/Sports Certificates/summercamp2012.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Sports Certificates/hockey2010.jpg" data-lightbox="mygallery" data-title="Secured 2nd Rank and won Silver Medal in SKating Hockey (Year:2010)"> <img src="/Sports Certificates/hockey2010.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Sports Certificates/artisticgrp2010.jpg" data-lightbox="mygallery" data-title="Secured 3rd Position in Skating Group Dance (Year:2010) "> <img src="/Sports Certificates/artisticgrp2010.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Sports Certificates/speed2010.jpg" data-lightbox="mygallery" data-title="Participation Certificate for Speed Skating on National Sports Day (Year:2010)"> <img src="/Sports Certificates/speed2010.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Sports Certificates/artisticc2010.jpg" data-lightbox="mygallery" data-title="Third Rank in Artistic (Year:2010)"> <img src="/Sports Certificates/artisticc2010.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Sports Certificates/hockey2009.jpg" data-lightbox="mygallery" data-title="Secured Third Position in Skating Hockey on National Sports Day (Year:2009) "> <img src="/Sports Certificates/hockey2009.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Sports Certificates/stateskate2009.jpg" data-lightbox="mygallery" data-title="Certificate Of Participation "> <img src="/Sports Certificates/stateskate2009.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Sports Certificates/skate2009.jpg" data-lightbox="mygallery" data-title="Certificate Of Participation"> <img src="/Sports Certificates/skate2009.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                            <br>
+                            <br>
+                            <hr class="hr-line">
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- Item 3 End -->
+
+                    <!-- Item 4 -->
+                    <div class="section-sub-title padd-15">
+
+                        <h3 id="social">SOCIAL</h3>
+                        <nav class="navbar">
+                            <a href="#technical" class="active"><i class="fa fa-desktop"></i>&nbsp;&nbsp;TECHNICAL</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#internship"><i class="fa fa-trophy"></i>&nbsp;&nbsp;INTERNSHIP REWARDS</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#sports"><i class="fa fa-futbol-o"></i>&nbsp;&nbsp;SPORTS</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#social"><i class="fa fa-handshake-o"></i>&nbsp;&nbsp;SOCIAL-ACTIVITY</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#extra-curricular"><i class="	fa fa-plus-square"></i>&nbsp;&nbsp;EXTRA-CURRICULAR</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </nav>
+                    </div>
+                    <div class="row ">
+                        <div class="gallery ">
+                            <a href="/Social Certificates/BD2019" data-lightbox="mygallery" data-title="Blood Donation Camp At VIT College (Year:2019)"> <img src="/Social Certificates/BD2019"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Social Certificates/BD120419.jpg" data-lightbox="mygallery" data-title="Blood Donation Camp At VIT College (Year:2019)"> <img src="/Social Certificates/BD120419.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Social Certificates/BD060816.jpg" data-lightbox="mygallery" data-title="Blood Donation (Year:2016)"> <img src="/Social Certificates/BD060816.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Social Certificates/BD2016.jpg" data-lightbox="mygallery" data-title="Blood Donation (Year:2016)"> <img src="/Social Certificates/BD2016.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Social Certificates/BD310815.jpg" data-lightbox="mygallery" data-title="Blood Donation (Year:2015)"> <img src="/Social Certificates/BD310815.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Social Certificates/snehalay2014.jpg" data-lightbox="mygallery" data-title="Worked For Snehalay Foundation in 12th Std"> <img src="/Social Certificates/snehalay2014.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Social Certificates/ENVawarenessexam2011.jpg" data-lightbox="mygallery" data-title="All India Environment Awareness Competition (Year:2011)"> <img src="/Social Certificates/ENVawarenessexam2011.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Social Certificates/NGO2011.jpg" data-lightbox="mygallery" data-title="Contributed as a volunteer for Cancer and Aids patients (Year:2011)"> <img src="/Social Certificates/NGO2011.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                            <br>
+                            <br>
+                            <hr class="hr-line">
+                        </div>
+                    </div>
+                    <!-- Item 4 End -->
+
+                    <!-- Item 5 -->
+                    <div class="section-sub-title padd-15">
+
+                        <h3 id="extra-curricular">Extra-Curricular</h3>
+                        <nav class="navbar">
+                            <a href="#technical" class="active"><i class="fa fa-desktop"></i>&nbsp;&nbsp;TECHNICAL</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#internship"><i class="fa fa-trophy"></i>&nbsp;&nbsp;INTERNSHIP REWARDS</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#sports"><i class="fa fa-futbol-o"></i>&nbsp;&nbsp;SPORTS</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#social"><i class="fa fa-handshake-o"></i>&nbsp;&nbsp;SOCIAL-ACTIVITY</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#extra-curricular"><i class="	fa fa-plus-square"></i>&nbsp;&nbsp;EXTRA-CURRICULAR</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </nav>
+                    </div>
+                    <div class="row ">
+                        <div class="gallery ">
+                            <a href="/Extra Curricular Activity/Duet2018.jpg" data-lightbox="mygallery" data-title="Secured 2nd Position For Duet Dance in Annual Gathering in TYBCS at K. K. Wagh College, Nashik. (Year:2018)"> <img src="/Extra Curricular Activity/Duet2018.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Extra Curricular Activity/PhotoBooth2018.jpg" data-lightbox="mygallery" data-title="Participated In Technical PhotoBooth Competition in SRUJAN Event in TYBCS at K. K. Wagh College, Nashik. (Year:2018)"> <img src="/Extra Curricular Activity/PhotoBooth2018.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Extra Curricular Activity/coordinator2018.jpg" data-lightbox="mygallery" data-title="Worked As A Co-ordinator in Puzzle Game Event in TYBCS at K. K. Wagh College, Nashik. (Year:2018)"> <img src="/Extra Curricular Activity/coordinator2018.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Extra Curricular Activity/Deepstambh2015.jpg" data-lightbox="mygallery" data-title="Participated in Deepstambh Exam And Scored Good Grade in 12th Std. (Year:2015)"> <img src="/Extra Curricular Activity/Deepstambh2015.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Extra Curricular Activity/Deepstambh2014.jpg" data-lightbox="mygallery" data-title="Participated in Deepstambh Exam And Scored Good Grade in 11th Std. (Year:2014)"> <img src="/Extra Curricular Activity/Deepstambh2014.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Extra Curricular Activity/Elementory2010.jpg" data-lightbox="mygallery" data-title="Got 'C' Grade in Elementory Drawing Exam in 8th Std. (Year:2010)"> <img src="/Extra Curricular Activity/Elementory2010.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Extra Curricular Activity/GTS2010.jpg" data-lightbox="mygallery" data-title="Scored 60% in General Talent Search Exam (GTSE) in 8th Std. (Year:2010)"> <img src="/Extra Curricular Activity/GTS2010.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Sports Certificates/abacus2009.jpg" data-lightbox="mygallery" data-title="Certificate Of Participation for UCMAS(ABACUS) Exam (Year:2009)"> <img src="Sports Certificates/abacus2009.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/Extra Curricular Activity/hindi2007.jpg" data-lightbox="mygallery" data-title="Passed Hindi Language Exam in 7th std "> <img src="/Extra Curricular Activity/hindi2007.jpg"></a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+                            <br>
+                            <br>
+                            <hr class="hr-line">
+
+
+                        </div>
+                    </div>
+                    <!-- Item 5 End -->
+
+                </div>
+            </div>
+
+
+        </section>
+
+        <!--Portfolio section  End-->
+
+        <!--Blog Section-->
+
+
+        <section class="blog section" id="blog">
+            <div class="container">
+                <div class="row">
+                    <div class="section-title padd-15">
+                        <h2>Latest Blog</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <!--Blog item-->
+                    <div class="blog-item padd-15">
+                        <div class="blog-item-inner shadow-dark">
+                            <div class="blog-img">
+                                <img src="ispexp.jpeg" alt="blog" height="200px">
+                                <div class="blog-date">
+                                    22 Nov 2020
+                                </div>
+                            </div>
+                            <div class="blog-info">
+                                <h4 class="blog-title">My ISP Experience</h4>
+                                <p class="blog-description">In this blog I have shared my Internshala Student Partner (ISP) 19 Experience</p>
+                                <p class="blog-tags">To Read More: <a href="https://learntechnicallly.blogspot.com/2020/11/my-isp-experience.html"> Click Here </a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Blog item end-->
+
+                    <!--Blog item-->
+                    <div class="blog-item padd-15">
+                        <div class="blog-item-inner shadow-dark">
+                            <div class="blog-img">
+                                <img src="b1.png" alt="blog" height="200px">
+                                <div class="blog-date">
+                                    3 Sept 2020
+                                </div>
+                            </div>
+                            <div class="blog-info">
+                                <h4 class="blog-title">Internshala Internships</h4>
+                                <p class="blog-description">Here I have given information about<br><br>Internshala Internships </p>
+                                <p class="blog-tags">To Read More: <a href="https://learntechnicallly.blogspot.com/2020/09/internship-at-internshala.html"> Click Here </a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Blog item end-->
+
+
+
+                    <!--Blog item-->
+                    <div class="blog-item padd-15">
+                        <div class="blog-item-inner shadow-dark">
+                            <div class="blog-img">
+                                <img src="b3.jpeg" alt="blog">
+                                <div class="blog-date">
+                                    12 July 2020
+                                </div>
+                            </div>
+                            <div class="blog-info">
+                                <h4 class="blog-title">Interview Reality After Lockdown</h4>
+                                <p class="blog-description"><br> </p>
+                                <p class="blog-tags">To Read More:
+                                    <a href="https://learntechnicallly.blogspot.com/2020/07/lockdown-advantage-lockdown-disadvantage-corona-covid19-skills-learn-Interview-reality-courses-thankyou.html">Click Here</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Blog item end-->
+                </div>
+            </div>
+        </section>
+
+        <!--Blog Section End-->
+
+
+        <!--Contact Section-->
+
+        <section class="contact section" id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="section-title padd-15">
+                        <h2>Contact Me</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <!--Contact-info-item-->
+                    <div class="contact-info-item padd-15">
+                        <div class="icon"><i class="fa fa-phone"></i></div>
+                        <h4>Call Me on</h4>
+                        <p> +91 7057472708</p>
+                    </div>
+                    <!--Contact-info-item End-->
+                    <!--Contact-info-item-->
+                    <div class="contact-info-item padd-15">
+                        <div class="icon"><i class="fa fa-map-marker"></i></div>
+                        <h4>Location</h4>
+                        <p>Maharashtra, India.</p>
+                    </div>
+                    <!--Contact-info-item End-->
+                    <!--Contact-info-item-->
+                    <div class="contact-info-item padd-15">
+                        <div class="icon"><i class="fa fa-envelope"></i></div>
+                        <h4>Email</h4>
+                        <p>neerajahire969@gmail.com</p>
+                    </div>
+                    <!--Contact-info-item End-->
+                </div>
+                <!---Contact Form-->
+                <div class="row">
+                    <form class="contact-form padd-15">
+                        <div class="row">
+                            <div class="form-item col-6 padd-15">
+                                <div class="form-group">
+                                    <input type="text" name="user" class="form-control" placeholder="Name">
+                                </div>
+                            </div>
+                            <div class="form-item col-6 padd-15">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Email">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-item col-12 padd-15">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Subject">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-item col-12 padd-15">
+                                <div class="form-group">
+                                    <textarea class="form-control" placeholder="message"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 padd-15">
+                                <button type="submit" class="btn">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <!---Contact Form End-->
+            </div>
+        </section>
+        <!--Contact Section End-->
+    </div>
+    <!--Main Content End-->
+    </div>
+    <!--Main Container-->
+
+    <!--lightbox-->
+    <div class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-close">&times;</div>
+            <img src="meet.png" class="lightbox-img" onclick="nextItem()">
+            <div class="lightbox-caption">
+                <div class="caption-text"></div>
+                <div class="caption-counter"></div>
+            </div>
+        </div>
+        <div class="lightbox-controls">
+            <div class="prev-item" onclick="prevItem()"><i class="fa fa-angle-left"></i></div>
+            <div class="next-item" onclick="nextItem()"><i class="fa fa-angle-right"></i></div>
+
+        </div>
+    </div>
+    <!--lightbox End-->
+
+    <!--Live Style Switcher - Demo Only-->
+
+    <div class="style-switcher">
+        <div class="toggle-style-switcher">
+            <i class="fa fa-cog fa-spin"></i>
+        </div>
+        <h5>Style Switcher</h5>
+        <ul>
+            <li>
+                <a href="javascript:void(0);" title="blue" style="background-color : #2196f3" onclick="setActivityStyle('blue')"></a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" title="pink" style="background-color : #ec1839" onclick="setActivityStyle('pink')"></a>
+
+            </li>
+            <li>
+                <a href="javascript:void(0);" title="green" style="background-color: #72b626" onclick="setActivityStyle('green')"></a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" title="orange" style="background-color:#b44e9b" onclick="setActivityStyle('orange')"></a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" title="yellow" style="background-color:#ffb400" onclick="setActivityStyle('yellow')"></a>
+            </li>
+
+        </ul>
+        <h5>Theme</h5>
+        <label>
+            <input type="radio" class="body-skin" name="body-style" value="light" checked="true">
+            Light
+        </label>
+
+        <label>
+            <input type="radio" class="body-skin" name="body-style" value="dark">
+            Dark
+        </label>
+    </div>
+
+    <!--Live Style Switcher - Demo Only End-->
+
+    <!--Template js-->
+
+    <script>
+        window.addEventListener("load", function() {
+                document.querySelector(".preloader").classList.add("opacity-0");
+
+                setTimeout(function() {
+                    document.querySelector(".preloader").style.display = "none";
+                }, 1000)
+            })
+            //Portfolio Item Filter
+
+        /* const filterContainer = document.querySelector(".portfolio-filter"),
+             filterBtns = filterContainer.children,
+             totalFilterBtn = filterBtns.length,
+             portfolioItems = document.querySelectorAll(".portfolio-item")
+         totalPortfolioItem = portfolioItems.length;
+
+         for (let i = 0; i < totalFilterBtn; i++) {
+
+             filterBtns[i].addEventListener("click", function() {
+                 filterContainer.querySelector(".active").classList.remove("active");
+                 this.classList.add("active");
+                 const filterValue = this.getAttribute("data-filter");
+                 for (let k = 0; k < totalPortfolioItem; k++) {
+                     if (filterValue === portfolioItems[k].getAttribute("data-category")) {
+
+                         portfolioItems[k].classList.remove("hide");
+                         portfolioItems[k].classList.add("show");
+                     } else {
+                         portfolioItems[k].classList.remove("show");
+                         portfolioItems[k].classList.add("hide");
+                     }
+                     if (filterValue === "all") {
+                         portfolioItems[k].classList.remove("hide");
+                         portfolioItems[k].classList.add("show");
+
+                     }
+                 }
+             })
+
+         }
+
+         //portfolio Lightbox
+         const lightbox = document.querySelector(".lightbox"),
+             lightboxImg = lightbox.querySelector(".lightbox-img"),
+             lightboxClose = lightbox.querySelector(".lightbox-close"),
+             lightboxText = lightbox.querySelector("caption-text"),
+             lightboxCounter = lightbox.querySelector(".caption-counter");
+         let itemIndex = 0;
+         for (let i = 0; i < totalPortfolioItem; i++) {
+             portfolioItems[i].addEventListener("click", function() {
+                 itemIndex = i;
+                 changeItem();
+                 toggleLightbox();
+             })
+         }
+
+         function nextItem() {
+             if (itemIndex === totalPortfolioItem) {
+                 itemIndex = 0;
+             } else {
+                 itemIndex++
+             }
+             changeItem()
+         }
+
+         function prevItem() {
+             if (itemIndex === 0) {
+                 itemIndex = totalPortfolioItem;
+             } else {
+                 itemIndex--;
+             }
+             changeItem()
+         }
+
+         function toggleLightbox() {
+             lightbox.classList.toggle("open");
+         }
+
+         function changeItem() {
+             imgSrc = portfolioItems[itemIndex].querySelector(".portfolio-img img").getAttribute("src");
+             lightboxImg.src = imgSrc;
+             lightboxText.innerHTML = portfolioItems[itemIndex].querySelector("h4").innerHTML;
+             lightboxCounter.innerHTML = (itemIndex + 1) + " of " + totalPortfolioItem;
+         }
+
+         // close Lightbox
+         lightbox.addEventListener("click", function(event) {
+             if (event.target === lightboxClose || event.target === lightbox) {
+                 toggleLightbox();
+             }
+
+         })*/
+
+        //Aside Navbar
+
+        const nav = document.querySelector(".nav"),
+            navList = nav.querySelectorAll("li"),
+            totalNavList = navList.length,
+            allSection = document.querySelectorAll(".section"),
+            totalSection = allSection.length;
+
+        for (let i = 0; i < totalNavList; i++) {
+            const a = navList[i].querySelector("a");
+            a.addEventListener("click", function() {
+                // remove back section class
+                removeBackSectionClass();
+                for (let j = 0; j < totalNavList; j++) {
+                    if (navList[j].querySelector("a").classList.contains("active")) {
+                        // add back section
+                        addBackSectionClass(j);
+                        allSection[j].classList.add("back-section");
+                    }
+
+                    navList[j].querySelector("a").classList.remove("active");
+                }
+                this.classList.add("active");
+
+                showSection(this);
+                if (window.innerWidth < 1200) {
+
+                    asideSectionTogglerBtn();
+                }
+            })
+        }
+
+        function removeBackSectionClass() {
+            for (let i = 0; i < totalSection; i++) {
+                allSection[i].classList.remove("back-section");
+            }
+        }
+
+        function addBackSectionClass(num) {
+            allSection[num].classList.add("back-section");
+        }
+
+        function showSection(element) {
+            for (let i = 0; i < totalSection; i++) {
+                allSection[i].classList.remove("active");
+            }
+            const target = element.getAttribute("href").split("#")[1];
+            document.querySelector("#" + target).classList.add("active")
+        }
+
+        function updateNav(element) {
+            for (let i = 0; i < totalNavList; i++) {
+                navList[i].querySelector("a").classList.remove("active");
+                const target = element.getAttribute("href").split("#")[1];
+                if (target === navList[i].querySelector("a").getAttribute("href").split("#")[1]) {
+                    navList[i].querySelector("a").classList.add("active");
+                }
+            }
+        }
+
+        document.querySelector(".hire-me").addEventListener("click", function() {
+            const sectionIndex = this.getAttribute("data-section-index");
+            //console.log(sectionIndex)
+            showSection(this);
+            updateNav(this);
+            removeBackSectionClass();
+            addBackSectionClass(sectionIndex);
+        })
+
+        const navTogglerBtn = document.querySelector(".nav-toggler"),
+            aside = document.querySelector(".aside");
+        navTogglerBtn.addEventListener("click", asideSectionTogglerBtn)
+
+
+
+        function asideSectionTogglerBtn() {
+            aside.classList.toggle("open");
+            navTogglerBtn.classList.toggle("open");
+        }
+    </script>
+
+    <!--Live Style js - Demo Only -->
+    <script>
+        const links = document.querySelectorAll(".alternate-style"),
+            totalLinks = links.length;
+
+        function setActivityStyle(color) {
+            for (let i = 0; i < totalLinks; i++) {
+                if (color === links[i].getAttribute("title")) {
+                    links[i].removeAttribute("disabled");
+                } else {
+                    links[i].setAttribute("disabled", "true");
+                }
+            }
+
+        }
+        //body skin
+
+        const bodySkin = document.querySelectorAll(".body-skin"),
+            totalBodySkin = bodySkin.length;
+        for (let i = 0; i < totalBodySkin; i++) {
+            bodySkin[i].addEventListener("change", function() {
+                if (this.value === "dark") {
+                    document.body.className = "dark";
+                } else {
+                    document.body.className = "";
+                }
+            })
+        }
+
+        document.querySelector(" .toggle-style-switcher").addEventListener("click", () => {
+
+            document.querySelector(" .style-switcher").classList.toggle("open");
+
+
+        })
+    </script>
+
+    <!--Live Style js - Demo Only End-->
+</body>
+
+</html>
+
+
+<!--
+170 bus nir 
+40 auto to cycle 
+120 j1 mayur
+40 auto to bus may
+60 auto to pool nir 
+140 omni mayur 
+40 mayur   305/-->
